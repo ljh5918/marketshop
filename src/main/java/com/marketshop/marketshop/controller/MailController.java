@@ -18,7 +18,6 @@ public class MailController {
     public String MailSend(String mail) {
 
         int number = mailService.sendMail(mail);
-
         String num = "" + number;
 
         return num;
