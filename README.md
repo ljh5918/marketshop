@@ -20,6 +20,10 @@ Thymeleaf
 
 Lombok
 
+Spring Security
+
+Querydsl
+
 #API
 ---
 Swagger V3 (Springdoc) (예정)
