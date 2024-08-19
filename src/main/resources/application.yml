@@ -1,0 +1,37 @@
+spring:
+  security:
+     oauth2:
+      client:
+        registration:
+          google:
+            client-id: Your Client ID
+            client-secret: Your Client Secure Password
+            scope: profile,email
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/marketshop?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: user1
+    password: 123456
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  mail:
+    # Google smtp server 사용
+    host: smtp.gmail.com
+    port: 587
+    username: princejhs200@gmail.com #앱 비밀번호 발급받은 google 계정
+    password: nwgn blmy efpq gbtd
+    #발급받은 앱 비밀번호
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
