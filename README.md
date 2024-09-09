@@ -12,7 +12,6 @@ packaging: jar
 
 DB: mysql 8.0.36
 
-11
 
 #라이브러리
 ---
