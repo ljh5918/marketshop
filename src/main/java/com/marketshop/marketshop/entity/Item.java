@@ -1,5 +1,6 @@
 package com.marketshop.marketshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.marketshop.marketshop.constant.ItemSellStatus;
 import com.marketshop.marketshop.dto.ItemFormDto;
 import com.marketshop.marketshop.exception.OutOfStockException;
@@ -9,6 +10,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "item")
@@ -43,12 +46,11 @@ public class Item extends BaseEntity{
 
     private LocalDateTime regTime;
 
-<<<<<<< HEAD
+
     @Column(name = "wishlist_count", nullable = false)
     private int wishlistCount = 0;
 
-=======
->>>>>>> 6564c08027a17aeab68d7916a974474ee8791116
+
     public void updateItem(ItemFormDto itemFormDto){
         this.itemNm = itemFormDto.getItemNm();
         this.price = itemFormDto.getPrice();
@@ -65,7 +67,6 @@ public class Item extends BaseEntity{
         this.stockNumber = restStock;
     }
 
-<<<<<<< HEAD
     public void addToWishlist() {
         this.wishlistCount++;
     }
@@ -74,9 +75,12 @@ public class Item extends BaseEntity{
         this.wishlistCount--;
     }
 
-=======
->>>>>>> 6564c08027a17aeab68d7916a974474ee8791116
+
     public void addStock(int stockNumber) {
         this.stockNumber += stockNumber;
     }
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Wishlist> wishlistItems = new HashSet<>();
 }

@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -43,11 +44,10 @@ public class QItem extends EntityPathBase<Item> {
 
     public final NumberPath<Integer> stockNumber = createNumber("stockNumber", Integer.class);
 
-<<<<<<< HEAD
     public final NumberPath<Integer> wishlistCount = createNumber("wishlistCount", Integer.class);
 
-=======
->>>>>>> 6564c08027a17aeab68d7916a974474ee8791116
+    public final SetPath<Wishlist, QWishlist> wishlistItems = this.<Wishlist, QWishlist>createSet("wishlistItems", Wishlist.class, QWishlist.class, PathInits.DIRECT2);
+
     public QItem(String variable) {
         super(Item.class, forVariable(variable));
     }
