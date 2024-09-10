@@ -43,8 +43,11 @@ public class QItem extends EntityPathBase<Item> {
 
     public final NumberPath<Integer> stockNumber = createNumber("stockNumber", Integer.class);
 
+<<<<<<< HEAD
     public final NumberPath<Integer> wishlistCount = createNumber("wishlistCount", Integer.class);
 
+=======
+>>>>>>> 6564c08027a17aeab68d7916a974474ee8791116
     public QItem(String variable) {
         super(Item.class, forVariable(variable));
     }
