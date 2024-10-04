@@ -40,6 +40,8 @@ public class QItem extends EntityPathBase<Item> {
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 
+    public final ListPath<ItemImg, QItemImg> productThumbnails = this.<ItemImg, QItemImg>createList("productThumbnails", ItemImg.class, QItemImg.class, PathInits.DIRECT2);
+
     public final DateTimePath<java.time.LocalDateTime> regTime = createDateTime("regTime", java.time.LocalDateTime.class);
 
     public final NumberPath<Integer> stockNumber = createNumber("stockNumber", Integer.class);

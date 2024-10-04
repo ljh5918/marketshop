@@ -9,7 +9,9 @@ spring:
             scope: profile,email
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/marketshop?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    url: jdbc:mysql://localhost:3306/marketshop?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url : jdbc:mysql://localhost:3306/marketshop?useUnicode=true&characterEncoding=utf8
+#    url: jdbc:mysql://localhost:3306/marketshop
     username: user1
     password: 12345678
   jpa:
@@ -26,8 +28,8 @@ spring:
     # Google smtp server 사용
     host: smtp.gmail.com
     port: 587
-    username: princejhs200@gmail.com #앱 비밀번호 발급받은 google 계정
-    password: nwgn blmy efpq gbtd
+    username: akwogur123@gmail.com #앱 비밀번호 발급받은 google 계정
+    password: qmxm gtyo wixg wpvp
     #발급받은 앱 비밀번호
     properties:
       mail:
