@@ -48,6 +48,10 @@ public class Item extends BaseEntity{
 
     private LocalDateTime regTime;
 
+    @ManyToOne(fetch = FetchType.LAZY) // 어떤 멤버가 만들었는지 (판매자)
+    @JoinColumn(name = "member_id")
+    @JsonIgnore
+    private Member member;
 
     @Column(name = "wishlist_count", nullable = false)
     private int wishlistCount = 0;
@@ -67,6 +71,9 @@ public class Item extends BaseEntity{
             throw new OutOfStockException("상품의 재고가 부족합니다." + "(현재 재고 수량: " + this.stockNumber + ")");
         }
         this.stockNumber = restStock;
+        if (this.stockNumber == 0) {
+            this.itemSellStatus = ItemSellStatus.SOLD_OUT;
+        }
     }
 
     public void addToWishlist() {
@@ -86,6 +93,7 @@ public class Item extends BaseEntity{
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Wishlist> wishlistItems = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ItemImg> productThumbnails = new ArrayList<>();
 }

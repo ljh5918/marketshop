@@ -18,6 +18,8 @@ public class QItem extends EntityPathBase<Item> {
 
     private static final long serialVersionUID = 1831347889L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QItem item = new QItem("item");
 
     public final QBaseEntity _super = new QBaseEntity(this);
@@ -35,6 +37,8 @@ public class QItem extends EntityPathBase<Item> {
 
     public final EnumPath<com.marketshop.marketshop.constant.ItemSellStatus> itemSellStatus = createEnum("itemSellStatus", com.marketshop.marketshop.constant.ItemSellStatus.class);
 
+    public final QMember member;
+
     //inherited
     public final StringPath modifiedBy = _super.modifiedBy;
 
@@ -51,15 +55,24 @@ public class QItem extends EntityPathBase<Item> {
     public final SetPath<Wishlist, QWishlist> wishlistItems = this.<Wishlist, QWishlist>createSet("wishlistItems", Wishlist.class, QWishlist.class, PathInits.DIRECT2);
 
     public QItem(String variable) {
-        super(Item.class, forVariable(variable));
+        this(Item.class, forVariable(variable), INITS);
     }
 
     public QItem(Path<? extends Item> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QItem(PathMetadata metadata) {
-        super(Item.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QItem(PathMetadata metadata, PathInits inits) {
+        this(Item.class, metadata, inits);
+    }
+
+    public QItem(Class<? extends Item> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 
 }

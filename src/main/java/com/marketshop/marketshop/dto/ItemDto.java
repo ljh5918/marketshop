@@ -6,6 +6,7 @@ import lombok.Setter;
 
 // 메인화면에 상품 상태 표시
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,4 +27,6 @@ public class ItemDto {
     private LocalDateTime regTime;
 
     private LocalDateTime updateTime;
+
+
 }

@@ -28,8 +28,11 @@ spring:
     # Google smtp server 사용
     host: smtp.gmail.com
     port: 587
-    username: akwogur123@gmail.com #앱 비밀번호 발급받은 google 계정
-    password: qmxm gtyo wixg wpvp
+#    username: akwogur123@gmail.com #앱 비밀번호 발급받은 google 계정
+#    password: qmxm gtyo wixg wpvp
+
+    username: princejhs200@gmail.com
+    password: nwgn blmy efpq gbtd
     #발급받은 앱 비밀번호
     properties:
       mail:
@@ -37,3 +40,24 @@ spring:
           starttls:
             enable: true
           auth: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

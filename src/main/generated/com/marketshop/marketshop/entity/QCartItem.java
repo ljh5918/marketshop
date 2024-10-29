@@ -55,4 +55,3 @@ public class QCartItem extends EntityPathBase<CartItem> {
     }
 
 }
-

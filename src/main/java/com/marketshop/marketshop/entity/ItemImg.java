@@ -1,5 +1,6 @@
 package com.marketshop.marketshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +27,7 @@ public class ItemImg {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
+    @JsonIgnore
     private Item item;
 
     public void updateItemImg(String oriImgName, String imgName, String imgUrl) {
@@ -33,7 +35,7 @@ public class ItemImg {
         this.imgName = imgName;
         this.imgUrl = imgUrl;
     }
-    
-    
-    
+
+
+
 }

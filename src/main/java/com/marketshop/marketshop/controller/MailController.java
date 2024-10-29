@@ -17,7 +17,7 @@ public class MailController {
 
     private final MailService mailService;
 
-    @PostMapping("/mail")
+    @PostMapping("/mail") //O
     public ResponseEntity<String> MailSend(@RequestParam("mail") String mail) {
         try {
             int number = mailService.sendMail(mail);

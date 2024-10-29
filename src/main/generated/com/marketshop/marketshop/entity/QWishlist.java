@@ -28,6 +28,8 @@ public class QWishlist extends EntityPathBase<Wishlist> {
 
     public final NumberPath<Long> itemid = createNumber("itemid", Long.class);
 
+    public final QItemImg itemImg;
+
     public final QMember member;
 
     public final NumberPath<Long> memberid = createNumber("memberid", Long.class);
@@ -50,7 +52,8 @@ public class QWishlist extends EntityPathBase<Wishlist> {
 
     public QWishlist(Class<? extends Wishlist> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.item = inits.isInitialized("item") ? new QItem(forProperty("item")) : null;
+        this.item = inits.isInitialized("item") ? new QItem(forProperty("item"), inits.get("item")) : null;
+        this.itemImg = inits.isInitialized("itemImg") ? new QItemImg(forProperty("itemImg"), inits.get("itemImg")) : null;
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }
 
